@@ -8,8 +8,8 @@ config();
  */
 export default defineConfig({
   testDir: './tests',
-  timeout: 60_000,
-  expect: { timeout: 10_000 },
+  timeout: 30_000,
+  expect: { timeout: 5_000 },
   fullyParallel: true,
   retries: 0,
   workers: undefined,
