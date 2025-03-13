@@ -3,8 +3,8 @@ import { Page } from '@playwright/test';
 export class Menu {
   constructor(private page: Page) {}
 
-  async clickLetsStartButton() {
-    await this.page.locator('#btnGui').click();
+  async clickArticlesButton() {
+    await this.page.getByRole('link', { name: ' Articles Explore and create' }).click();
   }
 
   async navigateToArticles() {

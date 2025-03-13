@@ -26,7 +26,7 @@ test('@GAD-R01-02-2 User can access without logging in to Comments page', async 
 test('@GAD-R01-03 User can use menu buttons to navigate between Articles, Comments and Home page', async ({ page }) => {
   const menu = new Menu(page);
   await page.goto('/');
-  await menu.clickLetsStartButton();
+  await menu.clickArticlesButton();
   await menu.navigateToComments();
   await expect(page.getByText(commentText)).toBeVisible();
   await menu.navigateToArticles();
