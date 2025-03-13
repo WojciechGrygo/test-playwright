@@ -38,7 +38,7 @@ jobs:
           CI: true
 
       - name: Wait for the app to be ready
-        run: sleep 20
+        run: sleep 5
 
       - name: Install dependencies for tests
         run: npm install
