@@ -1,4 +1,4 @@
-import { loginViaAPI } from '../../utils/auth';
+import { loginViaAPI } from '../../src/utils/auth';
 import { expect, test } from '@playwright/test';
 
 test('API Login', async ({ request, page }) => {
