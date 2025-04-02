@@ -1,5 +1,5 @@
-import { Menu } from '../../components/menu';
-import { Helpers } from '../../utils/helpers';
+import { Menu } from '../../src/components/menu';
+import { Helpers } from '../../src/utils/helpers';
 import test, { expect } from '@playwright/test';
 
 const articleText = 'Myth: Testing is only for finding bugs';

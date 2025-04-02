@@ -26,4 +26,10 @@ export class LoginPage {
   async verifyUnsuccessfulLogin() {
     await expect(this.errorMessage).toContainText('Invalid username or password');
   }
+
+  async verifyPageTitle() {
+    await expect(this.page.locator('h2', { hasText: 'Login' })).toBeVisible();
+    const title = await this.page.title();
+    expect(title).toContain('Login');
+  }
 }

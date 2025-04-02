@@ -1,7 +1,7 @@
 import { Page, expect } from '@playwright/test';
 
 export class Helpers {
-  constructor(private page: Page) {}
+  constructor(protected page: Page) {}
 
   async verifyPageTitle(url: string, title: string) {
     await this.page.goto(url);
