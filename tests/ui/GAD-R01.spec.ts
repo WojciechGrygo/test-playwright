@@ -4,7 +4,6 @@ import test, { expect } from '@playwright/test';
 
 const articleText = 'Myth: Testing is only for finding bugs';
 const commentText = `I couldn't agree more with the points you've made. This is a must-read for everyone in the field. So good!`;
-const homeHeader = 'Explore and create testing content!';
 
 test('@GAD-R01-01 Home page title contains sentence GAD', async ({ page }) => {
   const helpers = new Helpers(page);
@@ -25,6 +24,8 @@ test('@GAD-R01-02-2 User can access without logging in to Comments page', async 
 
 test('@GAD-R01-03 User can use menu buttons to navigate between Articles, Comments and Home page', async ({ page }) => {
   const menu = new Menu(page);
+  const homeHeader = 'Explore and create testing content!';
+
   await page.goto('/');
   await menu.clickArticlesButton();
   await menu.navigateToComments();
