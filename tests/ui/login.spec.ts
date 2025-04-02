@@ -1,5 +1,5 @@
-import { LoginPage } from '../../pages/login.page';
-import { WelcomePage } from '../../pages/welcome.page';
+import { LoginPage } from '../../src/pages/login.page';
+import { WelcomePage } from '../../src/pages/welcome.page';
 import { test } from '@playwright/test';
 
 test.describe('Login Page', () => {
