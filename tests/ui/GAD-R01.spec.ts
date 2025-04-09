@@ -10,19 +10,19 @@ test('@GAD-R01-01 Home page title contains sentence GAD', async ({ page }) => {
   await helpers.verifyPageTitle('/', '🦎 GAD');
 });
 
-test('@GAD-R01-02-1 User can access without logging in to Articles page', async ({ page }) => {
+test('@GAD-R01-02 User can access without logging in to Articles page', async ({ page }) => {
   const helpers = new Helpers(page);
   await helpers.verifyPageTitle('/articles.html', 'Articles');
   await expect(page.getByText(articleText)).toBeVisible();
 });
 
-test('@GAD-R01-02-2 User can access without logging in to Comments page', async ({ page }) => {
+test('@GAD-R01-03 User can access without logging in to Comments page', async ({ page }) => {
   const helpers = new Helpers(page);
   await helpers.verifyPageTitle('/comments.html', 'Comments');
   await expect(page.getByText(commentText)).toBeVisible();
 });
 
-test('@GAD-R01-03 User can use menu buttons to navigate between Articles, Comments and Home page', async ({ page }) => {
+test('@GAD-R01-04 User can use menu buttons to navigate between Articles, Comments and Home page', async ({ page }) => {
   const menu = new Menu(page);
   const homeHeader = 'Explore and create testing content!';
 

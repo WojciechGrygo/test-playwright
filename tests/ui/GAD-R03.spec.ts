@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
   registerPage = new RegisterPage(page);
 });
 
-test('User can register to the service using required fields @GAD-R03-01', async ({ page }) => {
+test('@GAD-R03-01 User can register to the service using required fields', async ({ page }) => {
   const loginPage = new LoginPage(page);
 
   await registerPage.goto();
@@ -21,7 +21,7 @@ test('User can register to the service using required fields @GAD-R03-01', async
   await loginPage.verifyPageTitle();
 });
 
-test('When user provide incorrect email, message "Please provide a valid email address" is presented @GAD-R03-04', async () => {
+test('@GAD-R03-02 When user provide incorrect email, message "Please provide a valid email address" is presented', async () => {
   user.email = 'invalidEmail'; // Set an invalid email
 
   await registerPage.goto();

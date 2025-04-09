@@ -2,43 +2,43 @@ import { LoginPage } from '../../src/pages/login.page';
 import { WelcomePage } from '../../src/pages/welcome.page';
 import { test } from '@playwright/test';
 
-test.describe('Login Page', () => {
-  let loginPage: LoginPage;
-  let welcomePage: WelcomePage;
+let loginPage: LoginPage;
+let welcomePage: WelcomePage;
 
-  const user = {
-    email: process.env.EMAIL!,
-    password: process.env.PASSWORD!,
-  };
+const user = {
+  email: process.env.EMAIL!,
+  password: process.env.PASSWORD!,
+};
 
-  test.beforeEach(async ({ page }) => {
-    loginPage = new LoginPage(page);
-    welcomePage = new WelcomePage(page);
-    await loginPage.goto();
-  });
+test.beforeEach(async ({ page }) => {
+  loginPage = new LoginPage(page);
+  welcomePage = new WelcomePage(page);
+  await loginPage.goto();
+});
 
-  test('@GAD-R02-01 User can login using login page', async () => {
-    await loginPage.login(user.email, user.password);
-    await welcomePage.verifySuccessfulLogin(user.email);
-  });
+// Add tags to the test cases
 
-  test('login with remember me checked', async () => {
-    await loginPage.login(user.email, user.password, true);
-    await welcomePage.verifySuccessfulLogin(user.email);
-  });
+test('User can login using login page @GAD-R02-01', async () => {
+  await loginPage.login(user.email, user.password);
+  await welcomePage.verifySuccessfulLogin(user.email);
+});
 
-  test('failed login with invalid email', async () => {
-    await loginPage.login('invalid@email.com', user.password);
-    await loginPage.verifyUnsuccessfulLogin();
-  });
+test('Login with remember me checked @GAD-R02-02', async () => {
+  await loginPage.login(user.email, user.password, true);
+  await welcomePage.verifySuccessfulLogin(user.email);
+});
 
-  test('failed login with invalid password', async () => {
-    await loginPage.login(user.email, 'wrongPassword');
-    await loginPage.verifyUnsuccessfulLogin();
-  });
+test('Failed login with invalid email @GAD-R02-03', async () => {
+  await loginPage.login('invalid@email.com', user.password);
+  await loginPage.verifyUnsuccessfulLogin();
+});
 
-  test('failed login with empty fields', async () => {
-    await loginPage.loginButton.click();
-    await loginPage.verifyUnsuccessfulLogin();
-  });
+test('Failed login with invalid password @GAD-R02-04', async () => {
+  await loginPage.login(user.email, 'wrongPassword');
+  await loginPage.verifyUnsuccessfulLogin();
+});
+
+test('Failed login with empty fields @GAD-R02-05', async () => {
+  await loginPage.loginButton.click();
+  await loginPage.verifyUnsuccessfulLogin();
 });
