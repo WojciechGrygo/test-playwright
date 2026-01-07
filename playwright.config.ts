@@ -7,6 +7,7 @@ config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  globalSetup: './config/global.setup.ts',
   testDir: './tests',
   timeout: 30_000,
   expect: { timeout: 5_000 },
@@ -15,7 +16,7 @@ export default defineConfig({
   workers: undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3000/',
+    baseURL: process.env.BASE_URL,
     actionTimeout: 5_000,
     trace: 'retain-on-failure',
     video: 'retain-on-failure',
